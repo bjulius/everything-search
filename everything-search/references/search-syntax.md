@@ -2,6 +2,34 @@
 
 This guide covers the practical search syntax for Everything search queries. Use these patterns when calling the search wrapper.
 
+## Important: CLI vs GUI Syntax
+
+This skill uses **es.exe (the command-line tool)**, which has different syntax support than the Everything GUI application.
+
+### Supported in CLI (this skill)
+✅ Filename wildcards (`*`, `?`)
+✅ File types by extension (`*.pdf`, `*.mp4`)
+✅ Boolean operators (space for AND, `|` for OR, `!` for NOT)
+✅ Location restrictions (`path\\`)
+✅ Regular expressions (with `-r` flag in advanced usage)
+
+### NOT Supported in CLI (GUI only)
+❌ Date filters (`modified:today`, `modified:7days`, `dm:today`, etc.)
+❌ File attributes (`/ad` for folders, `/a-d` for files in GUI)
+❌ Advanced metadata filters available in GUI
+
+### Workaround for Date Filtering
+
+Since es.exe CLI doesn't support date filters, use the Everything GUI application for:
+- Searching files by modification/creation/access date
+- Complex date range queries
+- Combining date filters with filename patterns
+
+For CLI-based workflows needing recent files, consider:
+1. Using the GUI for one-time searches, then reference the results
+2. Combining filename patterns with known paths where recent files are stored
+3. Using PowerShell/Windows commands for date-based filtering after getting results
+
 ## Basic Searches
 
 ### Filename Search

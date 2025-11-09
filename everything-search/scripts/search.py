@@ -145,24 +145,51 @@ def main():
     # Find Everything CLI tool
     es_path = find_everything_cli()
     if not es_path:
-        error_msg = """# Everything Search: Not Available
+        error_msg = """# Everything Search: es.exe Not Found
 
-Everything search tool is not installed or not found in PATH.
+The Everything search skill requires es.exe (the command-line tool).
 
-## Installation Instructions
+## What's Missing?
 
-1. Download Everything from: https://www.voidtools.com/
-2. Run the installer
-3. Enable the Everything Service (recommended) during installation
-4. Restart your system
+You need the **Everything Command-Line Tool (es.exe)**, not just the Everything GUI application.
 
-## Troubleshooting
+## Installation Steps
 
-If Everything is installed but still not found:
-- Ensure it's installed in one of the standard locations (Program Files or Program Files (x86))
-- Or add the installation directory to your system PATH
+### Step 1: Verify Everything is Installed
+Check if Everything.exe exists at:
+- `C:\\Program Files\\Everything\\Everything.exe`
+- `C:\\Program Files (x86)\\Everything\\Everything.exe`
 
-Once installed, searches will be instant and much faster than Windows built-in search.
+If not found, download Everything from: https://www.voidtools.com/
+
+### Step 2: Download es.exe
+1. Visit: https://www.voidtools.com/downloads/
+2. Download: "Everything Command-line tool (es.exe)"
+3. Extract the es.exe file
+
+### Step 3: Install es.exe
+1. Copy es.exe to: `C:\\Program Files\\Everything\\`
+2. **Note:** You may need Administrator rights
+3. Verify by running: `C:\\Program Files\\Everything\\es.exe --version`
+
+## Important Notes
+
+- **Full vs Lite Version**: Only the Full version includes es.exe. If you have the Lite version, download the Full version.
+- **Everything Service**: Does NOT need to be running for es.exe to work
+- **PATH**: Alternatively, add the Everything directory to your system PATH
+
+## Verification
+
+After installing es.exe, run this helper script to verify:
+```
+python scripts/verify_es_installation.py
+```
+
+## Need Help?
+
+See the reference materials:
+- `references/faq.md` - Everything FAQ and troubleshooting
+- `references/search-syntax.md` - Search syntax guide
 """
         print(error_msg)
         sys.exit(1)

@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(powershell -Command \"Get-ChildItem ''C:\\Users\\brjul\\OneDrive\\Documents\\Desktop\\*.mp4'' | Select-Object Name, LastWriteTime\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

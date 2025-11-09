@@ -15,6 +15,103 @@ Everything is a specialized search engine for Windows that:
 - **Minimal overhead**: Uses negligible system resources
 - **Real-time updates**: Automatically stays current with filesystem changes
 
+## Prerequisites
+
+This skill requires:
+1. **Everything application** - Download from https://www.voidtools.com/
+2. **es.exe command-line tool** - The command-line interface for Everything
+
+### Important: es.exe vs Everything.exe
+
+This skill uses **es.exe** (the command-line tool), not Everything.exe (the GUI):
+- **Everything.exe** - Graphical user interface (GUI)
+- **es.exe** - Command-line tool that this skill needs
+
+The Full version of Everything includes both. The Lite version includes only the GUI.
+
+## Setup and Installation
+
+### Quick Setup (2 minutes)
+
+1. **Download Everything** (Full version) from https://www.voidtools.com/
+2. **Install Everything** normally
+3. **Download es.exe** from the same site under "Downloads" → "Everything Command-line tool"
+4. **Copy es.exe** to `C:\Program Files\Everything\`
+
+That's it! The skill will automatically find and use es.exe.
+
+### Detailed Installation Guide
+
+#### Step 1: Check if es.exe is Installed
+
+Run the verification helper:
+```bash
+python scripts/verify_es_installation.py
+```
+
+This will tell you:
+- ✅ If es.exe is correctly installed
+- ✅ The exact location of es.exe
+- ❌ What to do if it's missing
+
+#### Step 2: Install es.exe if Missing
+
+If es.exe is not found:
+
+1. **Verify you have the Full version of Everything:**
+   - Open `C:\Program Files\Everything\`
+   - Look for `Everything.exe`
+   - If you have only the Lite version, download the Full version
+
+2. **Download es.exe:**
+   - Go to https://www.voidtools.com/downloads/
+   - Find "Everything Command-line tool"
+   - Download the appropriate version (32-bit or 64-bit)
+   - Extract the es.exe file
+
+3. **Place es.exe in the right location:**
+   - Copy es.exe to: `C:\Program Files\Everything\`
+   - You may need Administrator rights
+   - Restart any command prompts or terminal windows
+
+4. **Verify the installation:**
+   - Run the verification helper again
+   - Or test manually: `C:\Program Files\Everything\es.exe --version`
+
+### Alternative: Add Everything to PATH
+
+Instead of copying es.exe to Program Files, you can add the Everything directory to your system PATH:
+
+1. Open Environment Variables (Windows):
+   - Press Win+X, select "System"
+   - Click "Advanced system settings"
+   - Click "Environment Variables"
+
+2. Under "User variables" or "System variables":
+   - Click "New"
+   - Variable name: `PATH`
+   - Variable value: `C:\Program Files\Everything\`
+   - Click OK
+
+3. Restart your terminal/IDE
+
+### Troubleshooting
+
+**"es.exe not found" error:**
+- Run `verify_es_installation.py` to diagnose
+- Check if Everything is actually installed
+- Verify es.exe is in `C:\Program Files\Everything\`
+- Make sure you have the Full version (not Lite)
+
+**"Everything Service" not required:**
+- es.exe works independently
+- The Everything Service/GUI does NOT need to be running
+- You can use this skill without opening Everything GUI
+
+**Permission issues:**
+- If you get permission errors, copy es.exe as Administrator
+- Right-click Command Prompt → "Run as administrator"
+
 ## When to Use This Skill
 
 Use this skill automatically whenever:
@@ -26,6 +123,7 @@ Use this skill automatically whenever:
 
 Do NOT use this skill if:
 - Everything is not installed on the user's system
+- es.exe is not available (see Prerequisites section)
 - Searching for content within files (unless absolutely necessary)
 - The user specifically asks to avoid using search tools
 
@@ -220,6 +318,29 @@ Everything provides instant search across:
 - **1,000,000 files**: ~75 MB RAM, ~1 minute indexing
 
 Searches execute in milliseconds due to filename indexing. This makes Everything superior to Windows built-in search for most file discovery tasks.
+
+## Known Limitations
+
+### CLI vs GUI Syntax
+
+This skill uses **es.exe (command-line tool)**, which has different capabilities than the Everything GUI:
+
+**Supported in this skill:**
+- ✅ Filename wildcards and patterns (`*.pdf`, `test_*.py`)
+- ✅ Boolean operators (AND, OR, NOT)
+- ✅ Location-based searches (`folder\\`)
+- ✅ Multiple file extensions
+
+**NOT supported in es.exe CLI:**
+- ❌ **Date filtering** (`modified:today`, `modified:7days`) - GUI only
+- ❌ File attributes/metadata filters
+- ❌ Advanced GUI-only features
+
+**Workaround:** For date-based searches, use the Everything GUI application directly. See `references/search-syntax.md` for details.
+
+### Content Searches
+
+File content searches (`content:keyword`) are slow because content is not indexed. Use for small targeted searches only.
 
 ## Error Handling
 
