@@ -38,7 +38,7 @@ The Full version of Everything includes both. The Lite version includes only the
 3. **Download es.exe** from the same site under "Downloads" → "Everything Command-line tool"
 4. **Copy es.exe** to `C:\Program Files\Everything\`
 
-That's it! The skill will automatically find and use es.exe.
+The skill automatically discovers and uses es.exe when properly installed.
 
 ### Detailed Installation Guide
 
@@ -49,10 +49,10 @@ Run the verification helper:
 python scripts/verify_es_installation.py
 ```
 
-This will tell you:
-- ✅ If es.exe is correctly installed
+The verification helper provides:
+- ✅ Confirmation if es.exe is correctly installed
 - ✅ The exact location of es.exe
-- ❌ What to do if it's missing
+- ❌ Installation guidance if es.exe is missing
 
 #### Step 2: Install es.exe if Missing
 
@@ -71,7 +71,7 @@ If es.exe is not found:
 
 3. **Place es.exe in the right location:**
    - Copy es.exe to: `C:\Program Files\Everything\`
-   - You may need Administrator rights
+   - Administrator rights may be required
    - Restart any command prompts or terminal windows
 
 4. **Verify the installation:**
@@ -101,12 +101,12 @@ Instead of copying es.exe to Program Files, you can add the Everything directory
 - Run `verify_es_installation.py` to diagnose
 - Check if Everything is actually installed
 - Verify es.exe is in `C:\Program Files\Everything\`
-- Make sure you have the Full version (not Lite)
+- Verify the Full version of Everything is installed (not Lite)
 
 **"Everything Service" not required:**
 - es.exe works independently
 - The Everything Service/GUI does NOT need to be running
-- You can use this skill without opening Everything GUI
+- The skill operates without opening the Everything GUI
 
 **Permission issues:**
 - If you get permission errors, copy es.exe as Administrator
@@ -179,7 +179,7 @@ Load these references when:
 
 ### Data Discovery & File Inventory
 
-**Example 1: Find all Python files in your system**
+**Example 1: Find all Python files on the system**
 ```bash
 python scripts/search.py "*.py"
 ```
