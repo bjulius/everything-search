@@ -1,5 +1,6 @@
 # Build artifacts
 *.skill
+*.zip
 
 # System files
 *.stackdump
