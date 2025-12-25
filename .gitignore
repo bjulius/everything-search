@@ -1,0 +1,22 @@
+# Build artifacts
+*.skill
+
+# System files
+*.stackdump
+Thumbs.db
+.DS_Store
+
+# IDE/Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+
+# Local settings (keep template, ignore local overrides)
+.claude/settings.local.json
