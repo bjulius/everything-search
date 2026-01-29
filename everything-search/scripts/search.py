@@ -23,7 +23,11 @@ def find_everything_cli():
     Locate the Everything command-line tool (es.exe).
     Checks common installation paths and system PATH.
     """
+    # Get the skill directory (parent of scripts folder)
+    skill_dir = Path(__file__).parent.parent
+
     common_paths = [
+        str(skill_dir / "es.exe"),  # Check skill directory first
         r"C:\Program Files\Everything\es.exe",
         r"C:\Program Files (x86)\Everything\es.exe",
         os.path.expandvars(r"%ProgramFiles%\Everything\es.exe"),
