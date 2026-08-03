@@ -1,13 +1,9 @@
 ---
 name: everything-search
 description: >
-  Windows file search using Everything's indexed search engine. Use this skill when:
-  (1) Finding or locating files and folders by name, pattern, or extension,
-  (2) Searching for files in specific directories,
-  (3) Discovering files matching criteria (e.g., "all Python files", "PDFs in Downloads"),
-  (4) Exploring filesystem structure or inventorying files,
-  (5) User asks to "find", "locate", "search for", or "look for" local files.
-  NOT for: content search within files, non-Windows systems, or when Everything/es.exe is unavailable.
+  Windows file search using the Everything indexed search engine. Use when
+  finding or locating local files or folders by name, pattern, or extension.
+  Not for content search within files or non-Windows systems.
 ---
 
 # Everything Search Skill
@@ -16,7 +12,7 @@ Instant file search on Windows using Everything's indexed database. Searches exe
 
 ## Prerequisites
 
-Requires **es.exe** (Everything command-line tool). For installation help, see `references/installation.md`.
+**es.exe** (Everything command-line tool) is bundled with this skill and used automatically. The Everything application itself must be installed and running to provide the search index — see `references/installation.md` for help.
 
 Quick verification:
 ```bash

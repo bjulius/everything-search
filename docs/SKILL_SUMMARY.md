@@ -164,10 +164,8 @@ Speed Advantage:       ~1000x faster
 ### Quick Setup (2 minutes)
 1. Download Everything (Full version) from [voidtools.com](https://www.voidtools.com/)
 2. Install Everything normally
-3. Download **es.exe** from voidtools.com/downloads
-4. Copy es.exe to `C:\Program Files\Everything\`
 
-That's it! The skill automatically discovers and uses es.exe.
+That's it! The command-line tool **es.exe** (v1.1.0.37) is bundled with the skill — no separate download needed. The skill uses its bundled copy first, falling back to a system-wide install at `C:\Program Files\Everything\` if present.
 
 ### Verification
 ```bash
